@@ -10,50 +10,21 @@ This project presents a multi-stage pipeline that converts a text description of
 
 The pipeline combines text-to-image generation, object segmentation, 3D object reconstruction, pose estimation, material generation, and final scene composition.
 
-## 🔄 Pipeline
+## 🔄 System Pipeline
 
-Text Prompt
-↓
-FLUX Text-to-Image
-↓
-SAM Object Segmentation
-↓
-SAM 3D Object Reconstruction
-↓
-6D Pose Estimation
-↓
-Material Generation using MaterialGAN
-↓
-Final 3D Scene
-↓
-Unity Visualization
+The proposed system follows a six-stage pipeline that transforms a natural
+language description into a complete 3D indoor environment.
 
-## 🧩 Project Pipeline
+![System Pipeline](pipeline.png)
 
-### 1. Text-to-Image Generation
+### Pipeline Stages
 
-A natural-language description is converted into a 2D indoor scene image using FLUX.
-
-### 2. Object Segmentation
-
-Objects in the generated scene are identified and segmented using SAM.
-
-### 3. 3D Object Reconstruction
-
-The segmented objects are converted into 3D representations using SAM 3D.
-
-### 4. Pose Estimation
-
-Object position and orientation are estimated to help place the reconstructed objects correctly in the scene.
-
-### 5. Material Generation
-
-Material information such as appearance, surface properties and textures is generated using MaterialGAN.
-
-### 6. Final Scene Composition
-
-The generated 3D objects, estimated poses and materials are combined to create the final indoor 3D scene.
-
+1. **Text-to-Image Generation** — FLUX generates the initial 2D scene.
+2. **Object Segmentation** — SAM extracts individual object masks.
+3. **3D Asset Generation** — SAM3D reconstructs the segmented objects into 3D assets.
+4. **Pose Translation** — The generated objects are positioned and oriented in 3D space.
+5. **Material Generation** — MaterialGAN generates materials for the floor and walls.
+6. **Final Scene Composition** — The objects, poses and materials are combined into the final 3D scene.
 ## 📁 Repository Structure
 
 ```text
