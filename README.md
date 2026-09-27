@@ -98,3 +98,18 @@ For object segmentation outputs, see:
 - [Barbie Bathroom Masks](Barbie_bath_mask/)
 - [Bathroom Masks](Bathrom_masks/)
 - [Isobath Masks](mask1(isobath)/)
+
+
+## ⚠️ Scope & Limitations
+
+- The current system focuses on static indoor 3D scene generation.
+- The pipeline depends on multiple external research models and tools.
+- The current implementation does not include animation or dynamic object behaviour.
+- Model weights are not included in this repository.
+- Some stages require GPU resources for processing.
+
+  ## 📌 Project Status
+
+This repository contains the project pipeline, intermediate outputs, generated assets, and final scene results.
+
+  
