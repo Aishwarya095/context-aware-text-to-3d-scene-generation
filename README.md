@@ -1,8 +1,6 @@
-# context-aware-text-to-3d-scene-generation
-AI-based pipeline for generating spatially coherent 3D indoor environments from natural language using FLUX, SAM, SAM3D and MaterialGAN.
 # Context-Aware Text-to-3D Scene Generation for Indoor Environments
 
-An AI-based pipeline for generating spatially coherent 3D indoor environments from natural language descriptions.
+An pipeline for generating spatially coherent 3D indoor environments from natural language descriptions.
 
 ## 📌 Overview
 
