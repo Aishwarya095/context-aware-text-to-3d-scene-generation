@@ -83,8 +83,7 @@ context-aware-text-to-3d-scene-generation/
 │   └── 06.Final_Results/
 │
 └── src/
-
-```markdown
+```
 ## 🖼️ Final 3D Scene Results
 
 The final stage combines the reconstructed 3D objects, estimated poses,
