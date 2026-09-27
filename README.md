@@ -15,7 +15,7 @@ The pipeline combines text-to-image generation, object segmentation, 3D object r
 The proposed system follows a six-stage pipeline that transforms a natural
 language description into a complete 3D indoor environment.
 
-![System Pipeline](pipeline.png)
+!(pipeline.png)
 
 ### Pipeline Stages
 
