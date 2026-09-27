@@ -83,3 +83,24 @@ context-aware-text-to-3d-scene-generation/
 │   └── 06.Final_Results/
 │
 └── src/
+
+##🖼️ Final 3D Scene Results
+
+The final stage combines the reconstructed 3D objects, estimated poses,
+and generated materials to produce the complete indoor 3D scene.
+
+### Final Scene 1
+
+![Final Scene 1](6.Final_Results/final1.png)
+
+### Final Scene 2
+
+![Final Scene 2](6.Final_Results/final2.png)
+
+### Final Scene 3
+
+![Final Scene 3](6.Final_Results/final3.png)
+
+### Final Scene 4
+
+![Final Scene 4](6.Final_Results/final4.png)
