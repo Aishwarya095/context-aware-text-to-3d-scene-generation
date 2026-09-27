@@ -84,23 +84,17 @@ context-aware-text-to-3d-scene-generation/
 │
 └── src/
 ```
-## 🖼️ Final 3D Scene Results
+## 🖼️ Project Results
 
-The final stage combines the reconstructed 3D objects, estimated poses,
-and generated materials to produce the complete indoor 3D scene.
+The repository contains the outputs generated at each stage of the 3D scene generation pipeline.
 
-### Final Scene 1
+- [Text-to-Image Results](01.Text_to_Image/)
+- [SAM 3D Object Outputs](3.Sam_Output/)
+- [Pose Estimation Results](4.Pose_Estimation/)
+- [Material Generation Results](5.Material_Generation/)
+- [Final 3D Scene Results](6.Final_Results/)
 
-![Final Scene 1](6.Final_Results/final1.png)
-
-### Final Scene 2
-
-![Final Scene 2](6.Final_Results/final2.png)
-
-### Final Scene 3
-
-![Final Scene 3](6.Final_Results/final3.png)
-
-### Final Scene 4
-
-![Final Scene 4](6.Final_Results/final4.png)
+For object segmentation outputs, see:
+- [Barbie Bathroom Masks](Barbie_bath_mask/)
+- [Bathroom Masks](Bathrom_masks/)
+- [Isobath Masks](mask1(isobath)/)
