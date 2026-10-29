@@ -1,0 +1,32 @@
+# Core Deep Learning & PyTorch
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+accelerate>=0.28.0
+
+# 2D Generative Models (FLUX / Diffusion)
+diffusers>=0.30.0
+transformers>=4.44.0
+sentencepiece>=0.2.0
+protobuf>=4.25.0
+
+# Segmentation (Segment Anything Model)
+segment-anything>=1.0.0
+opencv-python>=4.8.0
+pillow>=10.2.0
+
+# 3D Geometry, Mesh Processing & Lifting
+trimesh>=4.0.0
+open3d>=0.18.0
+scipy>=1.11.0
+numpy>=1.24.0,<2.0.0
+
+# Depth Estimation
+timm>=0.9.16
+
+# Utilities & Visualization
+matplotlib>=3.8.0
+tqdm>=4.66.0
+pydantic>=2.5.0
+requests>=2.31.0
+
