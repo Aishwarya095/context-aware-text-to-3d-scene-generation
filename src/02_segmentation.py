@@ -65,11 +65,11 @@ def segment_scene_objects(
         for cnt in contours:
             area = cv2.contourArea(cnt)
             if area > min_mask_area:
-                m = np.zeros((h, w), dtype=bool)
-                cv2.drawContours(m.astype(np.uint8), [cnt], -1, 1, -1)
+                m = np.zeros((h, w), dtype=np.uint8)
+                cv2.drawContours(m, [cnt], -1, 1, -1)
                 x, y, bw, bh = cv2.boundingRect(cnt)
                 masks.append({
-                    "segmentation": m,
+                    "segmentation": m.astype(bool),
                     "bbox": [x, y, bw, bh],
                     "area": area
                 })

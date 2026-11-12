@@ -26,9 +26,9 @@ def estimate_monocular_depth(image_rgb: np.ndarray) -> np.ndarray:
     Estimates depth map from an RGB image using DPT.
     """
     h, w, _ = image_rgb.shape
-    if DEPTH_MODEL_AVAILABLE and torch.cuda.is_available():
+    if DEPTH_MODEL_AVAILABLE:
         try:
-            processor = DPTImageProcessor.from_pretrained(DEPTH_MODEL_AVAILABLE)
+            processor = DPTImageProcessor.from_pretrained(DEPTH_ESTIMATOR_MODEL)
             model = DPTForDepthEstimation.from_pretrained(DEPTH_ESTIMATOR_MODEL).to(DEVICE)
             inputs = processor(images=Image.fromarray(image_rgb), return_tensors="pt").to(DEVICE)
             with torch.no_grad():

@@ -17,7 +17,7 @@ from pathlib import Path
 # Add src to path
 sys.path.insert(0, str(Path(__file__).parent))
 
-from config import DEFAULT_SCENE_PROMPT, OUTPUTS_DIR, MASKS_DIR, ASSETS_DIR, MATERIALS_DIR
+from config import DEFAULT_SCENE_PROMPT, OUTPUTS_DIR
 import importlib
 
 text_to_image = importlib.import_module("01_text_to_image")
@@ -40,6 +40,12 @@ def run_full_pipeline(
     print(f"Room Category: '{room_type}'")
     print(f"Output Root: {output_dir}\n")
 
+    masks_dir = output_dir / "masks"
+    assets_dir = output_dir / "assets"
+    materials_dir = output_dir / "materials"
+    for directory in (output_dir, masks_dir, assets_dir, materials_dir):
+        directory.mkdir(parents=True, exist_ok=True)
+
     # Stage 1: Text-to-Image
     print("\n--- [Stage 1/6] Text-to-Image Generation ---")
     scene_image_path = output_dir / "01_scene_layout.png"
@@ -49,20 +55,20 @@ def run_full_pipeline(
     print("\n--- [Stage 2/6] Object Segmentation (SAM) ---")
     segmented_objects = segmentation.segment_scene_objects(
         image_path=scene_image_path,
-        output_dir=MASKS_DIR
+        output_dir=masks_dir
     )
 
     # Stage 3: 3D Mesh Reconstruction
     print("\n--- [Stage 3/6] 3D Asset Reconstruction (2D-to-3D Lifting) ---")
-    meta_path = MASKS_DIR / "segmentation_metadata.json"
+    meta_path = masks_dir / "segmentation_metadata.json"
     reconstructed_assets = asset_reconstruction.reconstruct_all_assets(
         metadata_json=meta_path,
-        output_dir=ASSETS_DIR
+        output_dir=assets_dir
     )
 
     # Stage 4: 6D Pose Translation & Scene Graph
     print("\n--- [Stage 4/6] Pose Translation & Scene Graph Generation ---")
-    assets_meta_path = ASSETS_DIR / "assets_metadata.json"
+    assets_meta_path = assets_dir / "assets_metadata.json"
     scene_graph_path = output_dir / "scene_graph.json"
     scene_graph = pose_scene_graph.build_scene_graph(
         assets_meta_path=assets_meta_path,
@@ -72,7 +78,7 @@ def run_full_pipeline(
 
     # Stage 5: Environment Material Generation
     print("\n--- [Stage 5/6] Environment PBR Material Generation ---")
-    material_gen.create_default_scene_materials(output_dir=MATERIALS_DIR)
+    material_gen.create_default_scene_materials(output_dir=materials_dir)
 
     # Summary
     elapsed = time.time() - start_time

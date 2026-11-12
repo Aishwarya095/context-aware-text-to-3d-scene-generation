@@ -12,8 +12,8 @@
   "camera_preset": {
     "type": "isometric",
     "fov": 45,
-    "position": [4.5, 4.0, 4.5],
-    "target": [0.0, 0.5, 0.0]
+    "position": [4.5, 4.5, 4.0],
+    "target": [0.0, 0.0, 0.5]
   },
   "objects": [
     {
@@ -21,8 +21,8 @@
       "category": "bathtub",
       "mesh_file": "3.Sam_Output/bathtub.jpg",
       "transform": {
-        "position": [-0.85, 0.35, -0.75],
-        "rotation_euler_deg": [0.0, 45.0, 0.0],
+        "position": [-0.85, -0.75, 0.35],
+        "rotation_euler_deg": [90.0, 0.0, 45.0],
         "scale": [1.4, 0.7, 0.8]
       }
     },
@@ -31,8 +31,8 @@
       "category": "washbasin",
       "mesh_file": "3.Sam_Output/kitchen_sink.jpg",
       "transform": {
-        "position": [0.75, 0.45, -0.9],
-        "rotation_euler_deg": [0.0, 0.0, 0.0],
+        "position": [0.75, -0.9, 0.45],
+        "rotation_euler_deg": [90.0, 0.0, 0.0],
         "scale": [0.65, 0.85, 0.55]
       }
     },
@@ -41,8 +41,8 @@
       "category": "commode",
       "mesh_file": "3.Sam_Output/comodd.jpg",
       "transform": {
-        "position": [0.1, 0.4, -0.85],
-        "rotation_euler_deg": [0.0, 0.0, 0.0],
+        "position": [0.1, -0.85, 0.4],
+        "rotation_euler_deg": [90.0, 0.0, 0.0],
         "scale": [0.5, 0.8, 0.65]
       }
     },
@@ -51,8 +51,8 @@
       "category": "wall_cupboard",
       "mesh_file": "3.Sam_Output/cupboard.jpg",
       "transform": {
-        "position": [-1.2, 1.6, -0.95],
-        "rotation_euler_deg": [0.0, 0.0, 0.0],
+        "position": [-1.2, -0.95, 1.6],
+        "rotation_euler_deg": [90.0, 0.0, 0.0],
         "scale": [0.55, 0.95, 0.3]
       }
     },
@@ -61,8 +61,8 @@
       "category": "flowerpot",
       "mesh_file": "3.Sam_Output/flowerpot.jpg",
       "transform": {
-        "position": [-1.25, 0.25, 0.4],
-        "rotation_euler_deg": [0.0, 15.0, 0.0],
+        "position": [-1.25, 0.4, 0.25],
+        "rotation_euler_deg": [90.0, 0.0, 15.0],
         "scale": [0.35, 0.5, 0.35]
       }
     }
