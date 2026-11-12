@@ -74,30 +74,32 @@ def build_scene_graph(
     print(f"[*] Building 3D scene graph for room type: {room_type}")
 
     for asset in assets:
-        # Map 2D pixel coordinates to 3D ground plane (X: left-right, Y: floor-ceiling, Z: depth)
+        # Blender uses Z-up: X is left-right, Y is depth, and Z is vertical.
         cx_2d, cy_2d = asset["centroid_2d"]
         bbox_w, bbox_h = asset["bbox_2d"][2], asset["bbox_2d"][3]
 
         norm_x = (cx_2d / float(image_width) - 0.5) * room_dim["width"]
-        norm_z = (cy_2d / float(image_height) - 0.5) * room_dim["depth"]
+        norm_depth = (cy_2d / float(image_height) - 0.5) * room_dim["depth"]
 
         # Approximate physical object scale based on 2D bounding box
         scale_x = max(0.25, (bbox_w / float(image_width)) * room_dim["width"] * 1.2)
         scale_y = max(0.25, (bbox_h / float(image_height)) * room_dim["height"] * 1.2)
         scale_z = max(0.25, min(scale_x, scale_y) * 0.8)
 
-        # Place object on the floor (Y = scale_y / 2) unless it's a wall fixture
-        pos_y = scale_y / 2.0
+        # Place object on the floor (Z = scale_y / 2) unless it's a wall fixture.
+        pos_z = scale_y / 2.0
         if cy_2d < image_height * 0.35:  # Wall-mounted object heuristic (mirrors, lights, cabinets)
-            pos_y = room_dim["height"] * 0.65
+            pos_z = room_dim["height"] * 0.65
 
         obj_entry = {
             "id": asset["id"],
             "mesh_file": asset["mesh_path"],
             "category": f"object_{asset['id']:02d}",
             "transform": {
-                "position": [round(norm_x, 3), round(pos_y, 3), round(norm_z, 3)],
-                "rotation_euler_deg": [0.0, 0.0, 0.0],
+                # Reconstructed meshes use local Y as vertical and local Z as depth.
+                # Rotate them so local Y maps to Blender's world Z-up axis.
+                "position": [round(norm_x, 3), round(norm_depth, 3), round(pos_z, 3)],
+                "rotation_euler_deg": [90.0, 0.0, 0.0],
                 "scale": [round(scale_x, 3), round(scale_y, 3), round(scale_z, 3)]
             }
         }
